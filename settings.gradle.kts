@@ -3,6 +3,14 @@ enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
 pluginManagement {
     repositories {
+        // 阿里云镜像（优先）
+        maven("https://maven.aliyun.com/repository/gradle-plugin")
+        maven("https://maven.aliyun.com/repository/google")
+        maven("https://maven.aliyun.com/repository/public")
+        // 腾讯云兜底
+        maven("https://mirrors.cloud.tencent.com/nexus/repository/maven-public/")
+
+        // 官方仓库保留（镜像缺失时回源）
         google {
             mavenContent {
                 includeGroupAndSubgroups("androidx")
@@ -17,6 +25,10 @@ pluginManagement {
 
 dependencyResolutionManagement {
     repositories {
+        maven("https://maven.aliyun.com/repository/google")
+        maven("https://maven.aliyun.com/repository/public")
+        maven("https://mirrors.cloud.tencent.com/nexus/repository/maven-public/")
+
         google {
             mavenContent {
                 includeGroupAndSubgroups("androidx")
